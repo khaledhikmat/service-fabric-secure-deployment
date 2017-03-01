@@ -74,9 +74,9 @@ ServicePrincipalId             your-own-868e12ae6115
 }
 #>
 
-$yourOwnFabricResourceGroup = "YourOwnFabric";
+$serviceFabricResourceGroup = "YourOwnFabric";
 # Create a new resource group for the key vault in the location where Service Fabric is going to deployed
-New-AzureRmResourceGroup -Name $yourOwnFabricResourceGroup -Location $location
+New-AzureRmResourceGroup -Name $serviceFabricResourceGroup -Location $location
 
 # Check for core quota
 Get-AzureRmVMUsage
@@ -110,10 +110,10 @@ Standard LS Family Cores                 0    10 Count
 
 # I had to request a quota increase for west Us for the D series
 # Test the template - using VM Size of Standard_DS1_v2 instead of Standard_D2 to avoid quota exceeded errors
-Test-AzureRmResourceGroupDeployment -ResourceGroupName $yourOwnFabricResourceGroup -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
+Test-AzureRmResourceGroupDeployment -ResourceGroupName $serviceFabricResourceGroup -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 
 # Deploy it
-New-AzureRmResourceGroupDeployment -ResourceGroupName $yourOwnFabricResourceGroup -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
+New-AzureRmResourceGroupDeployment -ResourceGroupName $serviceFabricResourceGroup -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 
 # Assign users to the new cluster AD application that was created!!
 
@@ -127,6 +127,6 @@ Connect-ServiceFabricCluster -ConnectionEndpoint ${dnsName}:19000 -ServerCertThu
 ######
 
 # Delete the resource groups
-Remove-AzureRmResourceGroup -Name $yourOwnFabricResourceGroup -Force
+Remove-AzureRmResourceGroup -Name $serviceFabricResourceGroup -Force
 Remove-AzureRmResourceGroup -Name $keyValutResourceGroup -Force
    
