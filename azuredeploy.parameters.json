@@ -1,0 +1,81 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterLocation": {
+      "value": "westus"
+    },
+    "clusterName": {
+      "value": "hmcfabric"
+    },
+    "adminUserName": {
+      "value": "hmcfabric"
+    },
+    "adminPassword": {
+      "value": "adm!n_99fabric"
+    },
+    "vmImagePublisher": {
+      "value": "MicrosoftWindowsServer"
+    },
+    "vmImageOffer": {
+      "value": "WindowsServer"
+    },
+    "vmImageSku": {
+      "value": "2012-R2-Datacenter"
+    },
+    "vmImageVersion": {
+      "value": "latest"
+    },
+    "vmSize": {
+      "value": "Standard_D2"
+    },
+    "loadBalancedAppPort1": {
+      "value": 8080
+    },
+    "loadBalancedAppPort2": {
+      "value": 8081
+    },
+    "loadBalancedAppPort3": {
+      "value": 8082
+    },
+    "loadBalancedAppPort4": {
+      "value": 8083
+    },
+    "certificateStorevalue": {
+      "value": "My"
+    },
+    "certificateThumbprint": {
+      "value": "BEB29D861FD06078B75AC6F08D386C81808B068F"
+    },
+    "sourceVaultvalue": {
+      "value": "/subscriptions/d0eefeff-9fab-46fd-a0df-6f77505c71a6/resourceGroups/HmcKeyVault/providers/Microsoft.KeyVault/vaults/HmcFabricKeyVault"
+    },
+    "certificateUrlvalue": {
+      "value": "https://hmcfabrickeyvault.vault.azure.net:443/secrets/HmcFabricCertificate/3906af14c3b84641894e917133e451d2"
+    },
+    "clusterProtectionLevel": {
+      "value": "EncryptAndSign"
+    },
+    "storageAccountType": {
+      "value": "Standard_LRS"
+    },
+    "supportLogStorageAccountType": {
+      "value": "Standard_LRS"
+    },
+    "applicationDiagnosticsStorageAccountType": {
+      "value": "Standard_LRS"
+    },
+    "nt0InstanceCount": {
+      "value": 5
+    },
+    "aadTenantId": {
+      "value": "5383aa4a-6d2c-486b-874e-96a06dc3627e"
+    },
+    "aadClusterApplicationId": {
+      "value": "bd533e13-fa07-445b-904c-3f079cc199a0"
+    },
+    "aadClientApplicationId": {
+      "value": "488c03d3-8c53-49c8-b163-922ceaa831e8"
+    }
+  }
+}
